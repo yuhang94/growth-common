@@ -19,14 +19,7 @@
     <name>GrowthPlatform Common</name>
     <description>Shared libraries for GrowthPlatform</description>
 
-    <repositories>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
-    </repositories>
-
-    <modules>
+<modules>
         <module>growth-common-core</module>
         <module>growth-common-mq</module>
         <module>growth-common-cache</module>
@@ -37,17 +30,63 @@
     <properties>
         <java.version>21</java.version>
         <lombok.version>1.18.40</lombok.version>
-        <growth-platform-bom.version>main-SNAPSHOT</growth-platform-bom.version>
+
+        <!-- Third-party versions (keep in sync with growth-platform-bom) -->
+        <guava.version>33.4.0-jre</guava.version>
+        <redisson.version>3.40.2</redisson.version>
+        <rocketmq-spring.version>2.3.1</rocketmq-spring.version>
+        <xxl-job.version>2.4.2</xxl-job.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!-- Internal modules -->
             <dependency>
                 <groupId>io.github.yuhang94</groupId>
-                <artifactId>growth-platform-bom</artifactId>
-                <version>${growth-platform-bom.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
+                <artifactId>growth-common-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.yuhang94</groupId>
+                <artifactId>growth-common-mq</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.yuhang94</groupId>
+                <artifactId>growth-common-cache</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.yuhang94</groupId>
+                <artifactId>growth-common-scheduler</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.yuhang94</groupId>
+                <artifactId>growth-common-auth</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- Third-party -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>${redisson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-spring-boot-starter</artifactId>
+                <version>${rocketmq-spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-job-core</artifactId>
+                <version>${xxl-job.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
