@@ -23,11 +23,6 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Install growth-platform-bom
-        run: |
-          git clone --depth 1 https://github.com/yuhang94/growth-platform-bom.git /tmp/growth-platform-bom
-          mvn -f /tmp/growth-platform-bom/pom.xml install -B -q
-
       - name: Build and Test
         run: mvn clean verify -B
 

@@ -11,13 +11,20 @@
         <relativePath/>
     </parent>
 
-    <groupId>io.github.growth-platform</groupId>
+    <groupId>io.github.yuhang94</groupId>
     <artifactId>growth-common</artifactId>
     <version>0.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>GrowthPlatform Common</name>
     <description>Shared libraries for GrowthPlatform</description>
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
 
     <modules>
         <module>growth-common-core</module>
@@ -36,7 +43,7 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>io.github.growth-platform</groupId>
+                <groupId>io.github.yuhang94</groupId>
                 <artifactId>growth-platform-bom</artifactId>
                 <version>${growth-platform-bom.version}</version>
                 <type>pom</type>
